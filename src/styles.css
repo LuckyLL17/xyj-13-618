@@ -10,7 +10,6 @@ body {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 }
 
-/* 屏幕切换 */
 .screen {
     width: 100vw;
     height: 100vh;
@@ -25,7 +24,6 @@ body {
     pointer-events: none;
 }
 
-/* 登录界面 */
 #loginScreen {
     display: flex;
     justify-content: center;
@@ -81,7 +79,6 @@ body {
     border-color: #667eea;
 }
 
-/* 按钮样式 */
 .btn-primary, .btn-secondary, .btn-small {
     padding: 12px 30px;
     border: none;
@@ -124,7 +121,6 @@ body {
     background: rgba(255, 255, 255, 0.3);
 }
 
-/* 游戏主界面 */
 #gameCanvas {
     width: 100%;
     height: 100%;
@@ -134,7 +130,6 @@ body {
     z-index: 1;
 }
 
-/* 顶部状态栏 */
 #topBar {
     position: absolute;
     top: 0;
@@ -173,7 +168,6 @@ body {
     opacity: 0.9;
 }
 
-/* 属性面板 */
 #statsPanel {
     position: absolute;
     top: 80px;
@@ -217,7 +211,6 @@ body {
     transition: width 0.5s ease;
 }
 
-/* 属性颜色 */
 .stat-fill.energy {
     background: linear-gradient(90deg, #ffd700, #ffb700);
 }
@@ -238,7 +231,6 @@ body {
     background: linear-gradient(90deg, #ff9800, #f57c00);
 }
 
-/* 交互按钮面板 */
 #actionPanel {
     position: absolute;
     bottom: 20px;
@@ -286,7 +278,6 @@ body {
     transform: none;
 }
 
-/* 弹出框样式 */
 .modal {
     position: fixed;
     top: 0;
@@ -324,7 +315,6 @@ body {
     margin-bottom: 25px;
 }
 
-/* 食物选择 */
 .food-options {
     display: flex;
     gap: 15px;
@@ -367,7 +357,6 @@ body {
     color: #666;
 }
 
-/* 确认弹框按钮 */
 .confirm-buttons {
     display: flex;
     gap: 15px;
@@ -383,7 +372,6 @@ body {
     box-shadow: 0 5px 20px rgba(244, 67, 54, 0.4);
 }
 
-/* 消息提示 */
 #messageBox {
     position: absolute;
     top: 50%;
@@ -409,7 +397,6 @@ body {
     100% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
 }
 
-/* 响应式设计 */
 @media (max-width: 768px) {
     #statsPanel {
         width: 200px;
