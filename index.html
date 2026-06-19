@@ -1,151 +1,139 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>模拟人生 - 3D养成游戏</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <!-- 登录界面 -->
+  </head>
+  <body>
     <div id="loginScreen" class="screen">
-        <div class="login-container">
-            <h1>🏠 模拟人生</h1>
-            <p class="subtitle">欢迎来到你的虚拟生活</p>
-            <div class="input-group">
-                <label for="playerName">你的名字：</label>
-                <input type="text" id="playerName" placeholder="请输入名字" maxlength="10">
-            </div>
-            <button id="startBtn" class="btn-primary">开始游戏</button>
-            <button id="loadBtn" class="btn-secondary">读取存档</button>
+      <div class="login-container">
+        <h1>🏠 模拟人生</h1>
+        <p class="subtitle">欢迎来到你的虚拟生活</p>
+        <div class="input-group">
+          <label for="playerName">你的名字：</label>
+          <input type="text" id="playerName" placeholder="请输入名字" maxlength="10" />
         </div>
+        <button id="startBtn" class="btn-primary">开始游戏</button>
+        <button id="loadBtn" class="btn-secondary">读取存档</button>
+      </div>
     </div>
 
-    <!-- 游戏主界面 -->
     <div id="gameScreen" class="screen hidden">
-        <!-- 3D画布容器 -->
-        <div id="gameCanvas"></div>
+      <div id="gameCanvas"></div>
 
-        <!-- 顶部状态栏 -->
-        <div id="topBar">
-            <div class="time-display">
-                <span id="gameTime">00:00</span>
-                <span id="gameDay">第 1 天</span>
-            </div>
-            <div class="player-info">
-                <span id="playerNameDisplay">玩家</span>
-                <span id="moodText">心情：一般</span>
-            </div>
-            <button id="saveBtn" class="btn-small">💾 存档</button>
+      <div id="topBar">
+        <div class="time-display">
+          <span id="gameTime">00:00</span>
+          <span id="gameDay">第 1 天</span>
         </div>
-
-        <!-- 属性面板 -->
-        <div id="statsPanel">
-            <h3>角色状态</h3>
-            <div class="stat-item">
-                <div class="stat-label">
-                    <span>⚡ 精力</span>
-                    <span id="energyValue">100</span>
-                </div>
-                <div class="stat-bar">
-                    <div id="energyBar" class="stat-fill energy"></div>
-                </div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-label">
-                    <span>🧼 卫生</span>
-                    <span id="hygieneValue">100</span>
-                </div>
-                <div class="stat-bar">
-                    <div id="hygieneBar" class="stat-fill hygiene"></div>
-                </div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-label">
-                    <span>🎮 娱乐</span>
-                    <span id="funValue">80</span>
-                </div>
-                <div class="stat-bar">
-                    <div id="funBar" class="stat-fill fun"></div>
-                </div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-label">
-                    <span>👥 社交</span>
-                    <span id="socialValue">70</span>
-                </div>
-                <div class="stat-bar">
-                    <div id="socialBar" class="stat-fill social"></div>
-                </div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-label">
-                    <span>🍖 饥饿</span>
-                    <span id="hungerValue">90</span>
-                </div>
-                <div class="stat-bar">
-                    <div id="hungerBar" class="stat-fill hunger"></div>
-                </div>
-            </div>
+        <div class="player-info">
+          <span id="playerNameDisplay">玩家</span>
+          <span id="moodText">心情：一般</span>
         </div>
+        <button id="saveBtn" class="btn-small">💾 存档</button>
+      </div>
 
-        <!-- 交互按钮面板 -->
-        <div id="actionPanel">
-            <h3>快捷动作</h3>
-            <div class="action-buttons">
-                <button class="action-btn" data-action="eat">🍔 吃饭</button>
-                <button class="action-btn" data-action="sleep">😴 睡觉</button>
-                <button class="action-btn" data-action="phone">📱 玩手机</button>
-                <button class="action-btn" data-action="work">💼 工作</button>
-                <button class="action-btn" data-action="shower">🚿 洗澡</button>
-                <button class="action-btn" data-action="chat">💬 聊天</button>
-            </div>
+      <div id="statsPanel">
+        <h3>角色状态</h3>
+        <div class="stat-item">
+          <div class="stat-label">
+            <span>⚡ 精力</span>
+            <span id="energyValue">100</span>
+          </div>
+          <div class="stat-bar">
+            <div id="energyBar" class="stat-fill energy"></div>
+          </div>
         </div>
+        <div class="stat-item">
+          <div class="stat-label">
+            <span>🧼 卫生</span>
+            <span id="hygieneValue">100</span>
+          </div>
+          <div class="stat-bar">
+            <div id="hygieneBar" class="stat-fill hygiene"></div>
+          </div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-label">
+            <span>🎮 娱乐</span>
+            <span id="funValue">80</span>
+          </div>
+          <div class="stat-bar">
+            <div id="funBar" class="stat-fill fun"></div>
+          </div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-label">
+            <span>👥 社交</span>
+            <span id="socialValue">70</span>
+          </div>
+          <div class="stat-bar">
+            <div id="socialBar" class="stat-fill social"></div>
+          </div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-label">
+            <span>🍖 饥饿</span>
+            <span id="hungerValue">90</span>
+          </div>
+          <div class="stat-bar">
+            <div id="hungerBar" class="stat-fill hunger"></div>
+          </div>
+        </div>
+      </div>
 
-        <!-- 消息提示 -->
-        <div id="messageBox" class="hidden"></div>
+      <div id="actionPanel">
+        <h3>快捷动作</h3>
+        <div class="action-buttons">
+          <button class="action-btn" data-action="eat">🍔 吃饭</button>
+          <button class="action-btn" data-action="sleep">😴 睡觉</button>
+          <button class="action-btn" data-action="phone">📱 玩手机</button>
+          <button class="action-btn" data-action="work">💼 工作</button>
+          <button class="action-btn" data-action="shower">🚿 洗澡</button>
+          <button class="action-btn" data-action="chat">💬 聊天</button>
+        </div>
+      </div>
+
+      <div id="messageBox" class="hidden"></div>
     </div>
 
-    <!-- 做饭选择弹出框 -->
     <div id="cookingModal" class="modal hidden">
-        <div class="modal-content">
-            <h2>🍳 做饭</h2>
-            <p>选择你要做的食物：</p>
-            <div class="food-options">
-                <button class="food-btn" data-food="snack">
-                    <span class="food-emoji">🍪</span>
-                    <span class="food-name">零食</span>
-                    <span class="food-effect">+15 饥饿</span>
-                </button>
-                <button class="food-btn" data-food="meal">
-                    <span class="food-emoji">🍝</span>
-                    <span class="food-name">正餐</span>
-                    <span class="food-effect">+40 饥饿</span>
-                </button>
-                <button class="food-btn" data-food="gourmet">
-                    <span class="food-emoji">🍰</span>
-                    <span class="food-name">美食</span>
-                    <span class="food-effect">+60 饥饿, +20 娱乐</span>
-                </button>
-            </div>
-            <button id="closeCooking" class="btn-secondary">取消</button>
+      <div class="modal-content">
+        <h2>🍳 做饭</h2>
+        <p>选择你要做的食物：</p>
+        <div class="food-options">
+          <button class="food-btn" data-food="snack">
+            <span class="food-emoji">🍪</span>
+            <span class="food-name">零食</span>
+            <span class="food-effect">+15 饥饿</span>
+          </button>
+          <button class="food-btn" data-food="meal">
+            <span class="food-emoji">🍝</span>
+            <span class="food-name">正餐</span>
+            <span class="food-effect">+40 饥饿</span>
+          </button>
+          <button class="food-btn" data-food="gourmet">
+            <span class="food-emoji">🍰</span>
+            <span class="food-name">美食</span>
+            <span class="food-effect">+60 饥饿, +20 娱乐</span>
+          </button>
         </div>
+        <button id="closeCooking" class="btn-secondary">取消</button>
+      </div>
     </div>
 
-    <!-- 确认打断弹框 -->
     <div id="confirmModal" class="modal hidden">
-        <div class="modal-content">
-            <h2 id="confirmTitle">⚠️ 确认</h2>
-            <p id="confirmMessage">确定要打断当前动作吗？</p>
-            <div class="confirm-buttons">
-                <button id="confirmYes" class="btn-primary">确定</button>
-                <button id="confirmNo" class="btn-secondary">取消</button>
-            </div>
+      <div class="modal-content">
+        <h2 id="confirmTitle">⚠️ 确认</h2>
+        <p id="confirmMessage">确定要打断当前动作吗？</p>
+        <div class="confirm-buttons">
+          <button id="confirmYes" class="btn-primary">确定</button>
+          <button id="confirmNo" class="btn-secondary">取消</button>
         </div>
+      </div>
     </div>
 
-    <!-- 加载Three.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="game.js"></script>
-</body>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
 </html>
